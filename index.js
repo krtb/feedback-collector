@@ -2,6 +2,7 @@
 // import express = makes use of ES2015 modules
 const express = require('express')
 const passport = require('passport')
+const GoogleStrategy = require('passport-google-oauth20').Strategy
 
 const app = express()
 
