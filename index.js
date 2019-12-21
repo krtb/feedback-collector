@@ -1,12 +1,9 @@
 // require = using common JS modules,
 // import express = makes use of ES2015 modules
 const express = require('express')
-const app = express()
+const passport = require('passport')
 
-// app object, represents underlying express server
-app.get('/', (req, res) => {
-    res.send({ hi: 'there' })
-})
+const app = express()
 
 console.log('App is running on port')
 
