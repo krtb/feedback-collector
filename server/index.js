@@ -2,3 +2,11 @@
 // import express = makes use of ES2015 modules
 const express = require('express')
 const app = express()
+
+// app object, represents underlying express server
+app.get('/', (req, res) => {
+    res.send({ hi: 'there' })
+})
+
+console.log('App is running on port')
+app.listen(5000)
