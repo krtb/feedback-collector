@@ -6,7 +6,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy
 
 const app = express()
 
-// create new instance of Google Passport Strategy
+// passport.use = make passport aware of new strategy
+// create new instance of Google Passport Strategy, pass in configurations
 passport.use(new GoogleStrategy());
 
 console.log('App is running on port')
