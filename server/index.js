@@ -9,4 +9,8 @@ app.get('/', (req, res) => {
 })
 
 console.log('App is running on port')
-app.listen(5000)
+
+// HEROKU injects env vars, after deployment
+// OR, if there isn't a prod env variable, set it to be 5000 for local dev
+const PORT = process.env.PORT || 5000
+app.listen(PORT)
