@@ -4,7 +4,8 @@
 
 ## Heroku Deployment Checklist
 * Dynamic Port Binding
-  * heroku tells us what port app will use, make note
+  * heroku tells us what port app will use
+  * User what Heroku sayss
 * Specify Node Env
   * tell Heroku what specific version of node we'll be using
 * Specify Start Script
