@@ -6,6 +6,9 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy
 
 const app = express()
 
+// create new instance of Google Passport Strategy
+passport.use(new GoogleStrategy());
+
 console.log('App is running on port')
 
 // HEROKU injects env vars, after deployment
