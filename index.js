@@ -3,13 +3,16 @@
 const express = require('express')
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
-const keys = require('./config/keys')
+const keys = require('./config/keys') // require keys object
 
 const app = express()
 
 // passport.use = make passport aware of new strategy
 // create new instance of Google Passport Strategy, pass in configurations
-passport.use(new GoogleStrategy());
+passport.use(new GoogleStrategy({
+    clientID: keys.googleClientID,
+    clientSecret: keys.googleClientSecret
+}));
 
 console.log('App is running on port')
 
