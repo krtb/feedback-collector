@@ -9,11 +9,16 @@ const app = express()
 
 // passport.use = make passport aware of new strategy
 // create new instance of Google Passport Strategy, pass in configurations
-passport.use(new GoogleStrategy({
+passport.use(new GoogleStrategy(
+    {
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
     callbackURL: 'auth/google/callback'
-}));
+    }, 
+    (accessToken) => {
+        console.log(accessToken);
+    }
+));
 
 console.log('App is running on port')
 
