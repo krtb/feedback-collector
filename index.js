@@ -13,7 +13,7 @@ passport.use(new GoogleStrategy(
     {
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
-    callbackURL: 'auth/google/callback'
+    callbackURL: 'auths/google/callback'
     }, 
     (accessToken) => {
         console.log(accessToken);
@@ -27,7 +27,16 @@ app.get(
     '/auth/google', 
     passport.authenticate('google', {
     scope: ['profile', 'email']
-}))
+    }
+    )
+)
+
+app.get('/google/callback', 
+    passport.authenticate('google', {
+    successRedirect: '/profile',
+    failureRedirect: '/fail'
+    })
+)
 
 // HEROKU injects env vars, after deployment
 // OR, if there isn't a prod env variable, set it to be 5000 for local dev
