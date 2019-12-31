@@ -1,6 +1,6 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
-const keys = require('./config/keys') // require keys object
+const keys = require('../config/keys') // require keys object
 
 // passport.use = make passport aware of new strategy
 // create new instance of Google Passport Strategy, pass in configurations
