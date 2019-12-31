@@ -1,3 +1,6 @@
+// require npm file
+const passport = require('passport')
+
 // user comes to this route,
 // managed by passport,
 // asking for specific scopes from users google account
