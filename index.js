@@ -13,6 +13,16 @@ mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: tru
 // below takes app object and attaches two routes to it
 const app = express()
 
+// using Cookie-session package, as express doesn't handle by default
+app.use(
+    cookieSession({
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        keys: [keys.cookieKey]
+    })
+)
+// tell passport that it should make user of cookies
+app.use(passport.initialize())
+
 // call authRoutes with the app object
 // require returns a function, what was written in the file
 // then immediately call that function with the app object
