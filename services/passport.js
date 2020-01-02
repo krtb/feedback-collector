@@ -17,7 +17,20 @@ passport.use(new GoogleStrategy(
         callbackURL: 'http://localhost:5000/auth/google/callback'
     },
     (accessToken, refreshToken, profile, done) => {
-        // profile.id is coming from signed in user Google profile
-        new User ({ googleId: profile.id }).save();
+        // add function to check if User instance already exists in DB
+        // when reaching out to DB, initiate async action
+        // query returns a promise
+        User.findOne({ googleId: profile.id })
+        .then( (existingUser) => {
+            // if User already exists
+            if(existingUser) {
+
+            } else {
+                // don't have an existing user with this Id, make a new recorda
+                // profile.id is coming from signed in user Google profile
+                new User({ googleId: profile.id }).save();
+            }
+        } )
+
     }
 ));
