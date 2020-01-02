@@ -22,7 +22,7 @@ app.use(
 )
 // tell passport that it should make user of cookies
 app.use(passport.initialize())
-
+app.use(passport.session())
 // call authRoutes with the app object
 // require returns a function, what was written in the file
 // then immediately call that function with the app object
