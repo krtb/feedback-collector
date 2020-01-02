@@ -8,6 +8,21 @@ const keys = require('../config/keys') // require keys object
 // instead of require, will use different method
 const User = mongoose.model('users');
 
+// take user Model, put some identifying piece of info into the cookie
+passport.serializeUser((user, done) => {
+    // done is a callback
+    // user is object, just pulled out of database below
+    done(null, user.id)
+})
+
+// deserialize user from above
+// pull cookie back out, turn back into a user
+passport.deserializeUser((id, done)=> {
+    User.find(id).then( user => {
+        done(null, user)
+    })
+})
+
 // passport.use = make passport aware of new strategy
 // create new instance of Google Passport Strategy, pass in configurations
 passport.use(new GoogleStrategy(
@@ -35,6 +50,7 @@ passport.use(new GoogleStrategy(
                 new User({ googleId: profile.id })
                 .save()
                 .then(user => done(null, user))
+                // user object is then passed to serializer
             }
         } )
 
