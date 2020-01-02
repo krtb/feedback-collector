@@ -24,11 +24,17 @@ passport.use(new GoogleStrategy(
         .then( (existingUser) => {
             // if User already exists
             if(existingUser) {
+                // Done: tells Passport that we have finished creating user, should resume Auth process
+                // done takes 2 objects, first is an Error, second is
 
+                // if creating user, no error, pass null
+                done(null, existingUser)
             } else {
                 // don't have an existing user with this Id, make a new recorda
                 // profile.id is coming from signed in user Google profile
-                new User({ googleId: profile.id }).save();
+                new User({ googleId: profile.id })
+                .save()
+                .then(user => done(null, user))
             }
         } )
 
