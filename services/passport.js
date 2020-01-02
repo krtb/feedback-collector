@@ -22,6 +22,7 @@ passport.deserializeUser((id, done)=> {
         done(null, user)
     })
 })
+// after deserialized, added to request object as req.user
 
 // passport.use = make passport aware of new strategy
 // create new instance of Google Passport Strategy, pass in configurations
