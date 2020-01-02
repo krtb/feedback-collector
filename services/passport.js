@@ -17,8 +17,8 @@ passport.serializeUser((user, done) => {
 
 // deserialize user from above
 // pull cookie back out, turn back into a user
-passport.deserializeUser((id, done)=> {
-    User.find(id).then( user => {
+passport.deserializeUser((user, done)=> {
+    User.find(user.id).then( user => {
         done(null, user)
     })
 })
