@@ -1,7 +1,12 @@
 // require = using common JS modules,
 // import express = makes use of ES2015 modules
 const express = require('express')
+const mongoose = require('mongoose')
+const keys = require('./config/keys')
 require('./services/passport')
+
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, });
+
 // below takes app object and attaches two routes to it
 const app = express()
 
