@@ -3,7 +3,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy
 const mongoose = require('mongoose');
 const keys = require('../config/keys') // require keys object
 
-// use model calss to create new instance of a User
+// use model class to create new instance of a User
 // testing envs, like mocha, cause issue w/Mongoose when repeatedly calling it
 // instead of require, will use different method
 const User = mongoose.model('users');
