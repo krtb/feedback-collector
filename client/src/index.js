@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux'; // then pass store to prov
 
 import App from './components/App'
 
-const store = createStore(()=> [], {}) // next create a new instance of redux STORE. first arg of createStore is all reducers
+const store = createStore(() => [], {}, applyMiddleware()) // next create a new instance of redux STORE. first arg of createStore is all reducers
 
 ReactDOM.render(
     <App/>, 
