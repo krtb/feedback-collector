@@ -1,6 +1,6 @@
 // import uses Webpack & Babel, giving us access to ES2015 modules
 import React from 'react';
-import {} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom'; // react router helpers to help navigate around dom
 
 const App = () => {
     return(
