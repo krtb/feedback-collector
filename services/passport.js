@@ -33,12 +33,11 @@ passport.use(new GoogleStrategy(
         callbackURL: '/auth/google/callback',
         proxy: true,
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
         // add function to check if User instance already exists in DB
         // when reaching out to DB, initiate async action
         // query returns a promise
-        User.findOne({ googleId: profile.id })
-        .then( (existingUser) => {
+        const existingUser = await User.findOne({ googleId: profile.id })
             // if User already exists
             if(existingUser) {
                 // Done: tells Passport that we have finished creating user, should resume Auth process
@@ -49,12 +48,10 @@ passport.use(new GoogleStrategy(
             } else {
                 // don't have an existing user with this Id, make a new recorda
                 // profile.id is coming from signed in user Google profile
-                new User({ googleId: profile.id })
-                .save()
-                .then(user => done(null, user))
+                const user = await new User({ googleId: profile.id }).save()
+                done(null, user)
                 // user object is then passed to serializer
             }
-        } )
 
     }
 ));
