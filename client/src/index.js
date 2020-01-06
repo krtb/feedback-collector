@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'; // start setup of redux
+import { Provider } from 'react-redux'; // start setup of redux. Provider makes store accessible to every component of App
 import { createStore, applyMiddleware } from 'redux'; // then pass store to provider to connect react & redux 
 
 import App from './components/App'
