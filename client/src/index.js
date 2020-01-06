@@ -7,6 +7,7 @@ import App from './components/App'
 
 const store = createStore(() => [], {}, applyMiddleware()) // next create a new instance of redux STORE. first arg of createStore is all reducers
 
+// fourth step, to wrap app in provider, add store
 ReactDOM.render(
     <Provider store={store}>
         <App />
