@@ -8,6 +8,8 @@ import App from './components/App'
 const store = createStore(() => [], {}, applyMiddleware()) // next create a new instance of redux STORE. first arg of createStore is all reducers
 
 ReactDOM.render(
-    <App/>, 
+    <Provider store={store}>
+        <App />
+    </Provider>, 
     document.querySelector('#root')
 );
