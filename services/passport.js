@@ -45,13 +45,13 @@ passport.use(new GoogleStrategy(
 
                 // if creating user, no error, pass null
                 done(null, existingUser)
-            } else {
+            }
+            
                 // don't have an existing user with this Id, make a new recorda
                 // profile.id is coming from signed in user Google profile
                 const user = await new User({ googleId: profile.id }).save()
                 done(null, user)
                 // user object is then passed to serializer
-            }
 
     }
 ));
