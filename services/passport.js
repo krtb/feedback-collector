@@ -44,7 +44,7 @@ passport.use(new GoogleStrategy(
                 // done takes 2 objects, first is an Error, second is
 
                 // if creating user, no error, pass null
-                done(null, existingUser)
+                return done(null, existingUser)
             }
             
                 // don't have an existing user with this Id, make a new recorda
