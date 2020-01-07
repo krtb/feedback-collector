@@ -1,11 +1,30 @@
 // import uses Webpack & Babel, giving us access to ES2015 modules
 import React from 'react';
+// BrowserRouter --> looks at url, changes set of components on screen
+// Route --> route objects sets up rule between route and set cof components
 import {BrowserRouter, Route} from 'react-router-dom'; // react router helpers to help navigate around dom
+
+const Header = () => <h2>Header</h2>
+const Dashboard = () => <h2>Dashboard</h2>
+const SurveyNew = () => <h2>SurveyNew</h2>
+const Landing = () => <h2>Landing</h2>
 
 const App = () => {
     return(
         <div>
-            App component
+            <BrowserRouter>
+                {/* always show route by treating as regular component */}
+                <Header />
+
+                {/* use exact={true} to force Router to only use one route */}
+                <Route exact={true} path="/" component={Landing} />
+
+                <Route exact path="/surveys" component={Dashboard} />
+
+                <Route path="/surveys/new" component={SurveyNew} />
+
+
+            </BrowserRouter>
         </div>
     );
 }
