@@ -10,6 +10,13 @@ const SurveyNew = () => <h2>SurveyNew</h2>
 const Landing = () => <h2>Landing</h2>
 
 class App extends Component {
+
+    // add lifecycle method to call fetch_user action once app loads
+    // check to see if User is registered in mongoDB
+    componentDidMount(){
+
+    }
+
     render(){
         return (
             <div className="container" >
