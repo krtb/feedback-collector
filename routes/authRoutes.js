@@ -21,6 +21,7 @@ module.exports = (app) => {
         res.send(req.user)
     })
 
+    // route that decides IF a user is signed into the application
     app.get('/api/current_user', (req, res) => {
         res.send(req.user)
     })
