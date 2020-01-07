@@ -4,7 +4,7 @@ import React from 'react';
 // Route --> route objects sets up rule between route and set cof components
 import {BrowserRouter, Route} from 'react-router-dom'; // react router helpers to help navigate around dom
 
-const Header = () => <h2>Header</h2>
+import Header from './Header';
 const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
 const Landing = () => <h2>Landing</h2>
