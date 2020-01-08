@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import reducers from '../reducers'
+
+// steps to connect to redux store
+// import connect function
+// define mapStateToProps function
 
 class Header extends Component {
     render() {
+        console.log(this.props, 'from HEADER.js')
         return(
             <nav>
                 <div class="nav-wrapper">
@@ -15,4 +22,10 @@ class Header extends Component {
     }   
 }
 
-export default Header
+// destructure attributes from state
+function mapStateToProps({auth}){
+    // combine auth:auth
+    return { auth }
+}
+
+export default connect(mapStateToProps)(Header);
