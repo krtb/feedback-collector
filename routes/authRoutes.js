@@ -28,7 +28,7 @@ module.exports = (app) => {
 
     app.get('/api/logout', (req, res) => {
         req.logout()
-        res.send(req.user)
+        res.redirect('/')
     })
 
     // route that decides IF a user is signed into the application
