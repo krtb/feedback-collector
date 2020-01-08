@@ -7,6 +7,17 @@ import reducers from '../reducers'
 // define mapStateToProps function
 
 class Header extends Component {
+    renderContent(){
+        switch (this.props.auth) {
+            case null:
+                return 'Loading...';
+            case false:
+                return <li> <a href="/auth/google" > Login with Google </a> </li> ;
+            default:
+                return <li> <a> Log out </a> </li>;
+        }
+    }
+
     render() {
         console.log(this.props, 'from HEADER.js')
         return(
@@ -14,7 +25,7 @@ class Header extends Component {
                 <div class="nav-wrapper">
                     <a href="#" class="brand-logo">Feedback Collector</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="">Login with Google</a></li>
+                        { this.renderContent() }
                     </ul>
                 </div>
             </nav>
