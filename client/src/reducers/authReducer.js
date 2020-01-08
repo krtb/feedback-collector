@@ -8,7 +8,6 @@ import { FETCH_USER } from '../actions/types';
 // 3 - return false - request done, use not logged in
 
 export default function(state=null, action) {
-    console.log(action, 'actions FROM authReducer')
     switch (action.type) {
         case FETCH_USER:
             return action.payload || false;
