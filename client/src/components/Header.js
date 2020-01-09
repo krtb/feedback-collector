@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import reducers from '../reducers'
+import { Link } from 'react-router-dom';
 
 // steps to connect to redux store
 // import connect function
@@ -23,7 +23,9 @@ class Header extends Component {
         return(
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">Feedback Collector</a>
+                    <Link to={ this.props.auth ? '/surveys' : '/'} 
+                        class="brand-logo">Feedback Collector
+                    </Link>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         { this.renderContent() }
                     </ul>
