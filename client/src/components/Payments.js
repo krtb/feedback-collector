@@ -5,7 +5,9 @@ class Payments extends Components {
     render() {
         return(
             <div>
-                PAYMENT COMPONENT
+                <StripeCheckout
+                    amount={500}
+                />
             </div>
         )
     }
