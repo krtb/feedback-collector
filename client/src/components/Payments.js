@@ -7,6 +7,7 @@ class Payments extends Components {
             <div>
                 <StripeCheckout
                     amount={500}
+                    token={token => console.log(token)}
                 />
             </div>
         )
