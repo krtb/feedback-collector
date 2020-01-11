@@ -15,8 +15,8 @@ class Header extends Component {
                 return <li> <a href="/auth/google" > Login with Google </a> </li> ;
             default:
                 return [
-                    <li> <Payments/> </li>,
-                    <li> <a href="/api/logout" > Log out </a> </li>
+                    <li key="1" > <Payments/> </li>,
+                    <li key="2" > <a href="/api/logout" > Log out </a> </li>
                 ];
         }
     }
@@ -25,11 +25,11 @@ class Header extends Component {
         console.log(this.props, 'from HEADER.js')
         return(
             <nav>
-                <div class="nav-wrapper">
+                <div className="nav-wrapper">
                     <Link to={ this.props.auth ? '/surveys' : '/'} 
-                        class="brand-logo">Feedback Collector
+                        className="brand-logo">Feedback Collector
                     </Link>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <ul id="nav-mobile" className="right hide-on-med-and-down">
                         { this.renderContent() }
                     </ul>
                 </div>
