@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import { connector } from 'react-redux';
+import * as actions from '../actions';
 
 class Payments extends Component {
     render() {
@@ -21,4 +23,4 @@ class Payments extends Component {
     }
 }
 
-export default Payments
+export default connect(null, actions)(Payments)
