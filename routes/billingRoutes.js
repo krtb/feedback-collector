@@ -1,3 +1,4 @@
+const keys = require("../config/keys");
 const stripe = require('stripe');
 
 module.exports = app => {
