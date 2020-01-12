@@ -14,6 +14,8 @@ mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: tru
 // below takes app object and attaches two routes to it
 const app = express()
 
+app.use(bodyParser.json());
+
 // using Cookie-session package, as express doesn't handle by default
 app.use(
     cookieSession({
