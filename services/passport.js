@@ -37,7 +37,8 @@ passport.use(new GoogleStrategy(
         // add function to check if User instance already exists in DB
         // when reaching out to DB, initiate async action
         // query returns a promise
-        const existingUser = await User.findOne({ googleId: profile.id })
+        // TODO: changed profile.id => profile.googleId
+        const existingUser = await User.findOne({ googleId: profile.googleId })
             // if User already exists
             if(existingUser) {
                 // Done: tells Passport that we have finished creating user, should resume Auth process
