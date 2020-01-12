@@ -6,8 +6,6 @@ module.exports = app => {
     // create Stripe post request handler for user credit payment
     app.post('/api/stripe', requireLogin, async (req, res) => {
 
-
-
         const charge = await stripe.charges.create({
             amount: 500,
             currency: 'usd',
@@ -20,9 +18,9 @@ module.exports = app => {
 
         // setup with passport.initialize() and passport.session()
         // User model
-        req.user.credits += 5; 
+        req.user.credits += 5;
+        const user = await req.user.save();
         //reference copy of User that was just saved to DB
-        const user = await req.user.save(); //async request
         // send response back to User
         res.send(user);
         
