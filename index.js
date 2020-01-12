@@ -27,7 +27,8 @@ app.use(passport.session())
 // require returns a function, what was written in the file
 // then immediately call that function with the app object
 require('./routes/authRoutes')(app)
-
+// route returns a function which them is immediately called with app
+require('./routes/billingRoutes')(app);
 // HEROKU injects env vars, after deployment
 // OR, if there isn't a prod env variable, set it to be 5000 for local dev
 const PORT = process.env.PORT || 5000
